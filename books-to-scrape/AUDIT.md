@@ -15,5 +15,8 @@ Before publishing, I ran the audit prompt from the submission guidelines on this
 ## Second run
 Everything was OK: no secrets, no API keys (I used SQLite instead of Supabase partly for this reason), only source files tracked, and the setup steps work from a fresh download.
 
+## What I took from it
+This was the audit with the most to fix. I didn't realise the `.venv` folder was full of installed packages that have nothing to do with my own code, and that the database is something anyone can regenerate, so it doesn't belong on GitHub. Pinning the versions also made me think about the professor actually running my project on his computer, not just mine.
+
 ## Remaining limitations
 The reviewer has to run the scraper first (about one minute) because the database isn't included. Finding no issues doesn't prove the project is 100% safe; it only covers what the audit checks.

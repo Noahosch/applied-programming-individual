@@ -15,5 +15,8 @@ Before publishing, I ran the audit prompt from the submission guidelines on this
 ## Second run
 Everything was OK: no secrets or personal data. The TVmaze API needs no key, so there is nothing to hide.
 
+## What I took from it
+I almost published a screenshot showing all my open tabs and bookmarks, which I wouldn't have noticed without checking. It reminded me that an audit isn't only about code: everything in the repository is public, images included.
+
 ## Remaining limitations
 It needs an internet connection and depends on TVmaze's free API. Finding no issues doesn't prove the project is 100% safe; it only covers what the audit checks.
