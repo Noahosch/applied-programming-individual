@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#182b31">
+    <title>Stillpoint</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="newtab.js" defer></script>
+  </head>
+  <body>
+    <main class="scene">
+      <div class="photo" aria-hidden="true"></div>
+      <div class="shade" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="wordmark" href="#" aria-label="Stillpoint home">
+          <span class="wordmark-mark" aria-hidden="true"></span>
+          <span>stillpoint</span>
+        </a>
+        <button class="format-button" id="format-toggle" type="button" aria-label="Switch to 12-hour time">
+          24H
+        </button>
+      </header>
+
+      <section class="centerpiece" aria-label="Time and date">
+        <p class="date" id="date"></p>
+        <time class="clock" id="clock" aria-live="off"></time>
+      </section>
+
+      <footer class="quote-area">
+        <div class="quote-rule" aria-hidden="true"></div>
+        <blockquote class="quote" id="quote"></blockquote>
+        <p class="quote-author" id="quote-author"></p>
+        <button class="refresh-button" id="next-quote" type="button" aria-label="Show another quote" title="Another thought">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+            <path d="M20 7v5h-5M4.8 9a7 7 0 0 1 11.7-2L20 12M4 17v-5h5m10.2 3a7 7 0 0 1-11.7 2L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </footer>
+    </main>
+  </body>
+</html>

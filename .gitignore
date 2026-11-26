@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Generated data (recreate it by running the scraper)
+books-to-scrape/books.db
+*.sqlite
+*.sqlite3
+
+# Secrets and local configuration (none are needed, but never commit them)
+.env
+.env.*
+
+# Editors and dependencies
+.vscode/
+.idea/
+node_modules/
