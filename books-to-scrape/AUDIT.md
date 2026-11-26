@@ -1,45 +1,17 @@
 # Audit: Books to Scrape
 
-Audit carried out on 26 November 2026, before publishing this repository on GitHub, using the audit prompt from the submission guidelines with Claude as the coding assistant. This file is a sanitized summary: no secret values or personal details are included.
+Before publishing, I ran the audit prompt from the submission guidelines on this folder (with Claude), fixed what it found, and ran it again.
 
-## What was checked
-The audit prompt from the submission guidelines was run from this folder's root, covering:
-- Secrets, credentials, and personal or sensitive data (all files searched for keys, tokens, passwords, emails and local paths)
-- Files that should be excluded (local configuration, caches, dependency folders, generated files)
-- `.gitignore` rules (the repository's root `.gitignore` applies to this folder)
-- Dependencies, setup instructions and configuration examples
-- README sections: purpose, data collection, persistence, user interaction, setup, learning, limitations
-- Git status and tracked files
+## What the audit found and how I fixed it
+1. **Problem:** My personal email address was in the Git commits.  
+   **Fix:** I switched to my private GitHub "noreply" address and redid the commit.
+2. **Problem:** The folder had files that should not be published: the virtual environment (`.venv/`) and the generated database (`books.db`).  
+   **Fix:** I added them to `.gitignore` and checked that they are not on GitHub. Anyone can recreate the database by running the scraper.
+3. **Problem:** `requirements.txt` didn't fix the library versions, so someone else could install different ones.  
+   **Fix:** I pinned the exact versions I tested (`requests==2.32.5`, `beautifulsoup4==4.15.0`).
 
-The audit only read files: no project code was run, nothing was committed or pushed during the audit itself.
-
-## Round 1: findings and fixes
-
-| # | Type | Finding | Location | What I did |
-|---|---|---|---|---|
-| 1 | Confirmed | Git commits were going to be published with my personal email address (in the commit author metadata). | Repository-wide (Git config) | Switched GitHub Desktop to my GitHub private `noreply` address, undid the first commit and committed again. The published history only contains the noreply address. |
-| 2 | Confirmed | The project was not yet in a Git repository, so tracked files couldn't be checked. | Repository root | Created the `applied-programming-individual` repository with GitHub Desktop and checked the list of committed files. |
-| 3 | Confirmed | The folder contains a virtual environment (`.venv/`, with all the installed packages) and the generated database `books.db` (400 KB). Neither should be published. | `books-to-scrape/.venv/`, `books-to-scrape/books.db` | Both are listed in the root `.gitignore`. Checked after committing: neither appears in the tracked files. |
-| 4 | Confirmed | `requirements.txt` used minimum versions (`>=`), so a future install could get different library versions. | `requirements.txt` | Pinned the exact versions I installed and tested: `requests==2.32.5`, `beautifulsoup4==4.15.0`. |
-| 5 | Confirmed | The README had placeholders for the Learning and Assistance sections. | `README.md` | Wrote both sections. |
-| 6 | Recommendation | The website could be exposed to other people on the network if it listened on all addresses. | `app.py` | Already safe: the server only listens on `localhost`. User input only reaches SQL through `?` placeholders, and the sort option is checked against a fixed list (no SQL injection). Book titles are HTML-escaped. |
-
-"Confirmed" issues needed action before publishing. "Possible concern" and "Recommendation" items were reviewed; the table says whether they needed a change.
-
-No secrets, keys or personal data were found. No account or API key is used: the data comes from a public practice website, and storage is a local SQLite file. Setup instructions cover the virtual environment, installing requirements, running the scraper and starting the website.
-
-## Round 2: re-check after fixes
-The same checks were run again after the fixes and after the commit:
-- Secret and personal-data search: nothing found.
-- Committed files checked in GitHub Desktop: only source files, READMEs, screenshots, `.gitignore` and `.gitattributes`. No `.venv/`, `books.db`, `.DS_Store` or other local files.
-- Commit author email: the GitHub `noreply` address.
-- README: all seven sections present, plus a screenshot.
-
-After publishing, I made two small README edits (clarifying setup and external code, and rewriting the Learning section), so I ran the checks a third time on the public repository, folder by folder: no secrets or personal data, only this project's own files tracked, and the repository opens while logged out of GitHub.
-
-**Result:** no remaining issues blocking publication.
+## Second run
+Everything was OK: no secrets, no API keys (I used SQLite instead of Supabase partly for this reason), only source files tracked, and the setup steps work from a fresh download.
 
 ## Remaining limitations
-- `books.db` is not included, so a reviewer must run `scraper.py` first (about one minute, needs internet). This is documented in the README.
-- Requires Python 3.9 or newer.
-- Finding no issues does not prove the project is completely safe; this audit covers the points listed above.
+The reviewer has to run the scraper first (about one minute) because the database isn't included. Finding no issues doesn't prove the project is 100% safe; it only covers what the audit checks.
