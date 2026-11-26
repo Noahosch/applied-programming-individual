@@ -73,4 +73,4 @@ I learned that scraping is really about reading the structure of a web page: eve
 - The data is stored exactly as the site shows it, including its odd categories "Add a comment" and "Default". I didn't clean or merge them.
 
 **Assistance**
-I built this project with Claude (Anthropic's AI assistant) during the class on 26 November: Claude wrote the scraper and the website, tested them, and explained the choices to me; I ran it on my computer, checked the results and took the screenshot. Claude also helped me write this README. The data comes from books.toscrape.com, a site made for scraping practice.
+I built this project with Claude (Anthropic's AI assistant) during the class on 26 November: Claude wrote the scraper and the website, tested them, and explained the choices to me; I ran it on my computer, checked the results and took the screenshot. Claude also helped me write this README. External code: the `requests` and `beautifulsoup4` libraries (listed in `requirements.txt`). The data comes from books.toscrape.com, a site made for scraping practice.

@@ -19,7 +19,7 @@ Only one setting is stored: whether you prefer 12-hour or 24-hour time. It is sa
 3. Click the circular arrow under the quote to show another quote.
 
 ## Setup
-No installation or dependencies needed, only Google Chrome.
+No installation, dependencies or configuration needed, only Google Chrome.
 1. Download or clone this repository.
 2. In Chrome, go to `chrome://extensions`.
 3. Turn on **Developer mode** (top right).
