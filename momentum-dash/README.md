@@ -29,9 +29,9 @@ No installation, dependencies or configuration needed, only Google Chrome.
 To remove it, go back to `chrome://extensions` and click **Remove** on Stillpoint.
 
 ## Learning
-I learned that a Chrome extension is much simpler than I expected: it's just a normal web page (HTML, CSS and JavaScript) plus a `manifest.json` file that tells Chrome what to do with it. Here, one line (`chrome_url_overrides`) makes Chrome show my page instead of the default new tab. I also learned how `localStorage` lets a page remember a small setting, like the 12h/24h choice, without any database.
+Before this project, I thought browser extensions were something only "real" developers could build. It turns out Stillpoint is just a normal web page (HTML, CSS and a bit of JavaScript) plus one small file, `manifest.json`, where a single line tells Chrome to show my page instead of the usual new tab. That changed how I look at the extensions I use every day. I also learned about `localStorage`: the 12h/24h button remembers your choice in every new tab without any database, which was a good example of storing only what you actually need.
 
-**Challenge:** when I came back to the project to prepare this submission, it was in its own separate folder and repository, and I had to find it and move it into one organised repository with the other two. That taught me to keep projects organised in Git from the start, with a README, instead of fixing everything at the end.
+**Challenge:** for me the hard part wasn't the code, it was the organisation. When I sat down to prepare this submission, I honestly didn't remember where the project was. I found it in a separate folder that had a Git repository set up but had never been pushed to GitHub. Moving it into one clean repository with a proper README taught me something I'll keep for the next projects: set up Git and write the README at the start, not at the very end.
 
 ## Limitations and assistance
 **Limitations**

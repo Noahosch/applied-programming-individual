@@ -36,9 +36,9 @@ No installation, dependencies or configuration needed.
 An internet connection is required (for the API, the images and the fonts).
 
 ## Learning
-The main thing I learned is how API calls depend on each other: the first call only turns a show's name into an ID, and that ID is what unlocks the other calls (episodes and cast). I also saw that an API sends back structured data (JSON), so there's nothing to "clean", unlike scraping, and that the page can ask for several things at the same time to load faster. The API-call log at the bottom of the page helped me see exactly what happens when I search.
+What clicked for me with this project is that API calls depend on each other. When you search "Friends", the first call doesn't return any episodes; it only turns the name into an ID. That ID is what unlocks the episodes and the cast. The small log at the bottom of the page, which lists every call and why it was made, is what made this concrete for me, because I could actually watch it happen. Compared with Books to Scrape, I also noticed how much easier structured data is: TVmaze sends clean JSON, so there's nothing to clean up.
 
-**Challenge:** not every show has complete data. Some have no poster, no episode ratings or no cast on TVmaze, which at first left empty or broken parts on the page. The solution was to check for missing values and show a clear message instead (for example "Fans haven't rated this show's episodes yet").
+**Challenge:** real data is messy even when it comes from an API. Some shows have no poster, no episode ratings or no cast, so the page can't assume the data will always be there. I made each part show a clear message instead of breaking (for example "Fans haven't rated this show's episodes yet"). Searching "Friends" also showed me that a name isn't unique (there's a Friends from 1979 and one from 2021), which is why the page offers the other matches under "Looking for another one?".
 
 ## Limitations and assistance
 **Limitations**
