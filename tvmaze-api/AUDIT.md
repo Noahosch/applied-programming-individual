@@ -18,7 +18,7 @@ The audit only read files: no project code was run, nothing was committed or pus
 | # | Type | Finding | Location | What I did |
 |---|---|---|---|---|
 | 1 | Confirmed | Git commits were going to be published with my personal email address (in the commit author metadata). | Repository-wide (Git config) | Switched GitHub Desktop to my GitHub private `noreply` address, undid the first commit and committed again. The published history only contains the noreply address. |
-| 2 | Confirmed | The project was not yet in a Git repository, so tracked files couldn't be checked. | Repository root | Created the `applied-programming-individual` repository with GitHub Desktop and checked the list of committed files (17 files). |
+| 2 | Confirmed | The project was not yet in a Git repository, so tracked files couldn't be checked. | Repository root | Created the `applied-programming-individual` repository with GitHub Desktop and checked the list of committed files. |
 | 3 | Confirmed | The original file was named `tv-show-explorer.html`, which isn't obvious as the entry point. | `index.html` | Renamed it to `index.html` and documented how to open it. |
 | 4 | Confirmed | The README had placeholders for the Learning and Assistance sections. | `README.md` | Wrote both sections. |
 | 5 | Recommendation | Data from the API is inserted into the page as HTML, which could be a risk if a show's name contained HTML. | `index.html` (render functions) | Already handled: every value from the API goes through an `esc()` function that escapes HTML characters, and summaries are converted to plain text first. |
@@ -35,10 +35,11 @@ The same checks were run again after the fixes and after the commit:
 - Commit author email: the GitHub `noreply` address.
 - README: all seven sections present, plus a screenshot.
 
+After publishing, I made two small README edits (clarifying setup and external code, and rewriting the Learning section), so I ran the checks a third time on the public repository, folder by folder: no secrets or personal data, only this project's own files tracked, and the repository opens while logged out of GitHub.
+
 **Result:** no remaining issues blocking publication.
 
 ## Remaining limitations
 - Needs an internet connection.
 - Depends on TVmaze's free API and its rate limit (documented in the README).
 - Finding no issues does not prove the project is completely safe; this audit covers the points listed above.
-- Could not be verified from the audit itself: how the repository looks once it's public. I checked this separately after publishing by opening the link while logged out of GitHub.

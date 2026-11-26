@@ -18,7 +18,7 @@ The audit only read files: no project code was run, nothing was committed or pus
 | # | Type | Finding | Location | What I did |
 |---|---|---|---|---|
 | 1 | Confirmed | Git commits were going to be published with my personal email address (in the commit author metadata). | Repository-wide (Git config) | Switched GitHub Desktop to my GitHub private `noreply` address, undid the first commit and committed again. The published history only contains the noreply address. |
-| 2 | Confirmed | The project was not yet in a Git repository, so tracked files couldn't be checked. | Repository root | Created the `applied-programming-individual` repository with GitHub Desktop and checked the list of committed files (17 files). |
+| 2 | Confirmed | The project was not yet in a Git repository, so tracked files couldn't be checked. | Repository root | Created the `applied-programming-individual` repository with GitHub Desktop and checked the list of committed files. |
 | 3 | Confirmed | The README had placeholders for the Learning and Assistance sections. | `README.md` | Wrote both sections, including that the code was written with Claude. |
 | 4 | Possible concern | An older copy of this project exists in a separate local repository (`Documents/GitHub/Momentum`) with uncommitted changes and a remote that was never pushed. | Outside this repository | No action needed for publication: that copy is not part of this repository. This folder is the version I'm submitting. |
 | 5 | Recommendation | `manifest.json` has no icons, so Chrome shows a default icon in the extensions list. | `manifest.json` | Not fixed (cosmetic); listed as a limitation. |
@@ -34,10 +34,11 @@ The same checks were run again after the fixes and after the commit:
 - Commit author email: the GitHub `noreply` address.
 - README: all seven sections present, plus a screenshot.
 
+After publishing, I made two small README edits (clarifying setup and external code, and rewriting the Learning section), so I ran the checks a third time on the public repository, folder by folder: no secrets or personal data, only this project's own files tracked, and the repository opens while logged out of GitHub.
+
 **Result:** no remaining issues blocking publication.
 
 ## Remaining limitations
 - The background photo is hotlinked from Unsplash; if the URL ever stops working, the page falls back to a plain colour.
 - No icons in the manifest (cosmetic).
 - Finding no issues does not prove the project is completely safe; this audit covers the points listed above.
-- Could not be verified from the audit itself: how the repository looks once it's public. I checked this separately after publishing by opening the link while logged out of GitHub.
