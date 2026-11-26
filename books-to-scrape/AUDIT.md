@@ -2,6 +2,8 @@
 
 Before publishing, I ran the audit prompt from the submission guidelines on this folder (with Claude), fixed what it found, and ran it again.
 
+**What was checked:** secrets and personal data, files that shouldn't be published, the `.gitignore`, dependencies and setup instructions, and the README.
+
 ## What the audit found and how I fixed it
 1. **Problem:** My personal email address was in the Git commits.  
    **Fix:** I switched to my private GitHub "noreply" address and redid the commit.
